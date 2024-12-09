@@ -1,0 +1,71 @@
+Arrays
+1. Check Palindrome:
+Write a function to check if a string is a palindrome.
+Examples:
+Input: "racecar" → Output: true
+Input: "hello" → Output: false
+Input: "madam" → Output: true
+
+2. Array of Lengths:
+Given an array of strings, return an array of their lengths.
+Examples:
+Input: ['apple', 'banana', 'cherry'] → Output: [5, 6, 6]
+Input: ['a', 'ab', 'abc'] → Output: [1, 2, 3]
+Input: ['long', 'short', 'tiny'] → Output: [4, 5, 4]
+
+3. Remove Duplicates:
+Remove duplicate elements from an array.
+Examples:
+Input: [1, 2, 2, 3, 4, 4] → Output: [1, 2, 3, 4]
+Input: ['a', 'b', 'a', 'c'] → Output: ['a', 'b', 'c']
+Input: [5, 5, 5, 5] → Output: [5]
+
+4. Sort Numbers:
+Write a function to sort an array of numbers in ascending order.
+Examples:
+Input: [3, 1, 4, 2] → Output: [1, 2, 3, 4]
+Input: [10, 5, 20] → Output: [5, 10, 20]
+Input: [0, -10, 10] → Output: [-10, 0, 10]
+
+5. Split String to Array:
+Split a sentence into an array of words.
+Examples:
+Input: "One step at a time" → Output: ["One", "step", "at", "a", "time"]
+Input: "Hello world!" → Output: ["Hello", "world!"]
+Input: "JavaScript is awesome" → Output: ["JavaScript", "is", "awesome"]
+
+6. Challenging Problems
+Find Missing Number:
+Given an array of consecutive numbers with one missing, find the missing number.
+Examples:
+Input: [1, 2, 4, 5] → Output: 3
+Input: [10, 11, 13, 14] → Output: 12
+Input: [3, 4, 6] → Output: 5
+
+7. Find Duplicates:
+Find all duplicate numbers in an array.
+Examples:
+Input: [1, 2, 2, 3, 4, 4] → Output: [2, 4]
+Input: [5, 5, 10, 10, 10] → Output: [5, 10]
+Input: [1, 2, 3] → Output: []
+
+8. Count Character Frequency:
+Write a function to count how many times each character appears in a string.
+Examples:
+Input: "hello" → Output: {h: 1, e: 1, l: 2, o: 1}
+Input: "aabbc" → Output: {a: 2, b: 2, c: 1}
+Input: "aaa" → Output: {a: 3}
+
+9. Shift Array Elements:
+Write a function to rotate an array to the right by n steps.
+Examples:
+Input: [1, 2, 3, 4], n = 1 → Output: [4, 1, 2, 3]
+Input: [10, 20, 30], n = 2 → Output: [20, 30, 10]
+Input: [5, 6, 7], n = 3 → Output: [5, 6, 7]
+
+10. Find Second Largest Number:
+Find the second largest number in an array.
+Examples:
+Input: [1, 2, 3, 4] → Output: 3
+Input: [10, 20, 30] → Output: 20
+Input: [5, 5, 10] → Output: 5
