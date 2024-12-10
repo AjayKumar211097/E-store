@@ -11,23 +11,4 @@ Example:
 let productName = "Laptop";
 const productPrice = 1000;
 
-Functions
-Function declaration and expressions, arrow functions.
-Example:
-function getProductDetails(productName, productPrice) {
-    return `${productName} costs $${productPrice}`;
-}
-
-Loops and Conditionals
-for, while loops, and conditionals.
-Example: Looping through products.
-let products = ["Laptop", "Phone", "Headphones"];
-for (let i = 0; i < products.length; i++) {
-    console.log(products[i]);
-}
-
-Hands-on:
-Write a function to check if a product is in stock.
-Display the names of all products in inventory using loops.
-
 Homework:
