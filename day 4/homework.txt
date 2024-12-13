@@ -1,0 +1,60 @@
+1. Array Sum
+Problem: Write a function that takes an array of numbers and returns the sum of all the numbers in the array.
+Example input: [1, 2, 3, 4, 5]
+Example output: 15
+2. Find Maximum Value
+Problem: Write a function that finds the largest number in an array.
+Example input: [12, 5, 8, 130, 44]
+Example output: 130
+3. Find Minimum Value
+Problem: Write a function that finds the smallest number in an array.
+Example input: [12, 5, 8, 130, 44]
+Example output: 5
+4. Reverse an Array
+Problem: Write a function that reverses an array without using the built-in reverse() method.
+Example input: [1, 2, 3, 4]
+Example output: [4, 3, 2, 1]
+5. Filter Even Numbers
+Problem: Write a function that filters and returns only the even numbers from an array.
+Example input: [1, 2, 3, 4, 5, 6]
+Example output: [2, 4, 6]
+6. Filter Odd Numbers
+Problem: Write a function that filters and returns only the odd numbers from an array.
+Example input: [1, 2, 3, 4, 5, 6]
+Example output: [1, 3, 5]
+7. Multiply All Elements by 2
+Problem: Write a function that multiplies all elements in an array by 2.
+Example input: [1, 2, 3, 4]
+Example output: [2, 4, 6, 8]
+8. Remove Duplicates
+Problem: Write a function that removes all duplicate values from an array.
+Example input: [1, 2, 2, 3, 4, 4, 5]
+Example output: [1, 2, 3, 4, 5]
+9. Calculate Average of an Array
+Problem: Write a function that calculates the average of all numbers in an array.
+Example input: [10, 20, 30, 40]
+Example output: 25
+10. Find Index of a Value
+Problem: Write a function that finds the index of a given value in an array.
+Example input: [10, 20, 30, 40], 30
+Example output: 2
+11. Concatenate Two Arrays
+Problem: Write a function that concatenates two arrays into one.
+Example input: [1, 2, 3], [4, 5, 6]
+Example output: [1, 2, 3, 4, 5, 6]
+12. Flatten a Nested Array
+Problem: Write a function that flattens a nested array (an array of arrays) into a single array.
+Example input: [[1, 2], [3, 4], [5, 6]]
+Example output: [1, 2, 3, 4, 5, 6]
+13. Create a New Array with Square of Each Element
+Problem: Write a function that takes an array of numbers and returns a new array with each number squared.
+Example input: [1, 2, 3, 4]
+Example output: [1, 4, 9, 16]
+14. Join Array Elements into a String
+Problem: Write a function that joins all elements of an array into a single string, separated by commas.
+Example input: ['apple', 'banana', 'cherry']
+Example output: 'apple,banana,cherry'
+15. Sort an Array in Ascending Order
+Problem: Write a function that sorts an array in ascending order.
+Example input: [5, 3, 8, 1, 2]
+Example output: [1, 2, 3, 5, 8]
