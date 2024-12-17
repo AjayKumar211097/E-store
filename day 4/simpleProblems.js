@@ -62,3 +62,7 @@ function kmperHrToMiles(inputArray) {
 
 const kmperHrToMilesResult = kmperHrToMiles([40, 60, 80, 120]);
 console.log(kmperHrToMilesResult);
+
+const isPalindrome = (x) =>
+    x === parseInt(x.toString().split("").reverse().join(""));
+console.log(isPalindrome(221));
