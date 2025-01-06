@@ -1,0 +1,7 @@
+-   Math useful functions
+    -   random
+-   Advanced Arrays
+    -   For of
+    -   forEach
+    -   map
+    -   filter
