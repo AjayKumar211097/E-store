@@ -4,7 +4,7 @@
 
     - **Hint:** Think of a student in your class. Example: `{ name: 'Asha', age: 14, +10 }`
 
-2. **Add a new property to the student object after question 1 is completed, that logs a summary of the student.**
+2. **Edit and Add a new property to the student object after question 1 is completed, that logs a summary of the student.**
 
     - **Hint:** Use a function to print a sentence like: `console.log(\`\${this.name} is in grade \${this.grade}\`)`
 
@@ -24,7 +24,7 @@
 
     - **Hint:** Use a `for...in` loop to iterate through the object properties.
 
-7. **Add a new property to a school object dynamically using a variable.**
+7. **Edit and Add a new property to a school object dynamically using a variable.**
 
     - **Hint:** Use square brackets to add a property: `school[newKey] = value;`
 
