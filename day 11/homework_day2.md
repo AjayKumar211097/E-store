@@ -1,28 +1,28 @@
 ## Practice Problems with Hints and Tips
 
-1. **Create an object representing a student with properties like name, age, and grade.**
+1. **Create an object representing a student profile with 10 properties like name, age**
 
-    - **Hint:** Think of a student in your class. Example: `{ name: 'Asha', age: 14, grade: '9th' }`
+    - **Hint:** Think of a student in your class. Example: `{ name: 'Asha', age: 14, +10 }`
 
-2. **Add a method to the student object that logs a summary of the student.**
+2. **Add a new property to the student object after question 1 is completed, that logs a summary of the student.**
 
-    - **Hint:** Use a method to print a sentence like: `console.log(\`\${this.name} is in grade \${this.grade}\`)`
+    - **Hint:** Use a function to print a sentence like: `console.log(\`\${this.name} is in grade \${this.grade}\`)`
 
 3. **Destructure the student object and log each property individually.**
 
-    - **Hint:** Use `{}` to destructure. Example: `const { name, grade } = student;`
+    - **Hint:** Use `{}` to destructure. Example: `const { name, age } = student;`
 
-4. **Create an array of objects representing South Indian dishes with properties like name, region, and ingredients.**
+4. **Create an array of objects representing atleast 5 breakfasts(idly, dosa, +3) with properties like name, region, and ingredients.**
 
     - **Hint:** Example: `[{ name: 'Dosa', region: 'Tamil Nadu', ingredients: ['rice', 'urad dal'] }]`
 
-5. **Write a function that accepts an object and logs all its key-value pairs.**
+5. **Write a function that accepts any object and logs all only keys.**
 
     - **Hint:** Use a `for...in` loop to iterate through the object properties.
 
-6. **Convert a person object into a JSON string and back into an object.**
+6. **Write a function that accepts any object and logs all only values.**
 
-    - **Hint:** Use `JSON.stringify()` and `JSON.parse()` to serialize and deserialize.
+    - **Hint:** Use a `for...in` loop to iterate through the object properties.
 
 7. **Add a new property to a school object dynamically using a variable.**
 
@@ -32,13 +32,6 @@
 
     - **Hint:** Keep a variable `maxMark` and update it while looping through marks.
 
-9. **Write a method in a cricket team object that modifies the score property.**
-
-    - **Hint:** Use `this.score += 10;` within the method to update score.
-
-10. **Use the spread operator to merge two family objects.**
-    - **Hint:** Example: `const mergedFamily = { ...family1, ...family2 };`
-
 ---
 
 ## Problem 1: Calculate the Total Marks of Students
@@ -46,7 +39,16 @@
 **Input Example:**
 
 ```javascript
-const studentMarks = { Priya: 90, Ravi: 85, Sneha: 95 };
+const studentMarks = {
+    Priya: 90,
+    Ravi: 85,
+    Sneha: 95,
+    Haripriya: 90,
+    Anand: 85,
+    Chandan: 95,
+    Asha: 84,
+    Jai: 95,
+};
 ```
 
 -   **Real-world Use Case:** Calculating the total marks scored in a class test.
@@ -58,7 +60,16 @@ const studentMarks = { Priya: 90, Ravi: 85, Sneha: 95 };
 **Input Example:**
 
 ```javascript
-const students = { Asha: 14, Ravi: 16, Jai: 15 };
+const students = {
+    Priya: 90,
+    Ravi: 85,
+    Sneha: 95,
+    Haripriya: 90,
+    Anand: 85,
+    Chandan: 95,
+    Asha: 84,
+    Jai: 95,
+};
 ```
 
 -   **Real-world Use Case:** Identifying students with short names for a seating arrangement activity.
@@ -77,18 +88,56 @@ const dosa = { name: "Dosa", ingredients: ["rice", "urad dal", "salt"] };
 
 ---
 
-## Problem 4: Filter South Indian Cities with Population Over a Certain Number
+## Problem 4: Filter all Indian Cities with Population Over a 7000000
 
 **Input Example:**
 
 ```javascript
 const cities = [
-    { name: "Chennai", population: 10_000_000 },
-    { name: "Coimbatore", population: 1_500_000 },
+    {
+        city: "Mumbai",
+        population: 21900000,
+    },
+    {
+        city: "Delhi",
+        population: 31870000,
+    },
+    {
+        city: "Bangalore",
+        population: 12700000,
+    },
+    {
+        city: "Hyderabad",
+        population: 10400000,
+    },
+    {
+        city: "Ahmedabad",
+        population: 8300000,
+    },
+    {
+        city: "Chennai",
+        population: 11400000,
+    },
+    {
+        city: "Kolkata",
+        population: 15000000,
+    },
+    {
+        city: "Pune",
+        population: 7600000,
+    },
+    {
+        city: "Jaipur",
+        population: 4300000,
+    },
+    {
+        city: "Lucknow",
+        population: 3900000,
+    },
 ];
 ```
 
--   **Real-world Use Case:** Filtering South Indian cities for a cultural event.
+-   **Real-world Use Case:** Filtering South Indian cities for a cultural event. Use: IF > 70000
 
 ---
 
