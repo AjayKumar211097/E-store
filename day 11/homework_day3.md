@@ -138,7 +138,7 @@ This task mimics a checkout system used in online shopping platforms. Understand
 ### Homework Task:
 
 -   Comment on each concept used, e.g., `if()` // We are comparing this with that to get this, `function ()` // Used to calculate total price.
--   Write a new function applayDiscount() to create a discount feature where a 10% discount is applied if the total exceeds \$1000.
+-   Write a new function applyDiscount() to create a discount feature where a 10% discount is applied if the total exceeds \$1000.
 -   Write a new function getCostlyItems() that returns only the items costing above \$500.
 -   Write a function convertPricesToINR() that shows currency in INR, 1usd = INR 85.9, Default price in objects is USD.
 -   Write a function getTotalItemsInCart() that calculates the total number of items in the cart.
