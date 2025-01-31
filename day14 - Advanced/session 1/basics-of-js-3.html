@@ -1,0 +1,55 @@
+<html lang="en">
+
+<head>
+    <title>Js Us</title>
+    <style>
+        #Message {
+            color: blue;
+        }
+
+        button {
+            height: 50px;
+            width: 200px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DOM</h1>
+    <h1 id="Message">Your email is valid</h1>
+    <h4 class="blue-box">innerText</h4>
+    <p class="blue-box" onclick="alert('P Pressed')">para</p>,
+
+    <img src="assets/placeholder.png" width="200" height="100">
+    <img src="assets/placeholder.png" width="400" height="100">
+
+    <button>Error</button>
+    <script>
+        /* Event Listners */
+        //https://developer.mozilla.org/en-US/docs/Web/API/Element
+        // Mouse, keyboard, form, window
+        let counter = 0
+        function showImage1(event) {
+            imageElements[0].setAttribute("src", "assets/image.jpeg") // Show first image
+            imageElements[1].setAttribute("src", "assets/placeholder.png") // Hide Image
+        }
+        function showImage2(event) {
+            imageElements[0].setAttribute("src", "assets/placeholder.png") // Hide first image
+            imageElements[1].setAttribute("src", "assets/image2.jpeg") // Show second image
+            counter += 1;
+            messageElement.innerText = counter;
+        }
+        const imageElements = document.getElementsByTagName("img");
+        imageElements[0].addEventListener("click", showImage1)
+        imageElements[1].addEventListener("click", showImage2)
+
+
+        const messageElement = document.getElementById("Message")
+        messageElement.addEventListener("mouseenter", () => { console.log("mouse entered") })
+
+        /* Home Work- Work on matching pairs images, Score, Use chatGPT, EveryLine */
+    </script>
+</body>
+
+</html>

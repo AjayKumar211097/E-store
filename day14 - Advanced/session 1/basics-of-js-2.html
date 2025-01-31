@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <title>Js Us</title>
+    <style>
+        #Message {
+            color: blue;
+        }
+
+        button {
+            height: 50px;
+            width: 200px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DOM</h1>
+    <h1 id="Message">Your email is valid</h1>
+    <h4 class="blue-box">innerText</h4>
+    <p class="blue-box">para</p>,
+
+    <img src="assets/placeholder.png" width="200" height="200">
+
+    <button>Error</button>
+    <script>
+        /* Here on js  */
+        // Access html
+        const messageElement = document.getElementById("Message")
+        const element2 = document.getElementsByClassName("blue-box")
+        const allH1tags = document.getElementsByTagName("h1")
+        console.log(allH1tags)
+        //Modify html
+        element2[0].innerHTML = "<ul><li>one</li></ul>"
+        element2[1].innerHTML = "<ul><li>two</li></ul>"
+
+
+        // Modify css 
+        messageElement.style.color = "red"
+        allH1tags[0].style.color = "gold"
+
+        // Modify the attributes 
+        const imageElement = document.getElementsByTagName("img");
+        imageElement[0].setAttribute("src", "assets/image.jpeg")
+
+        /* Until here  */
+    </script>
+</body>
+
+</html>
