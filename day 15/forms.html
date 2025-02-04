@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <title>Forms</title>
+</head>
+
+<body>
+
+    <form id="college-contact-form">
+        <input type="text" id="name" name="fullname" placeholder="Name" required>
+        <input type="text" id="email" name="email" placeholder="email">
+        <input type="text" name="subject" id="subject" placeholder="subject">
+        <textarea id="message" rows="1" cols="30" placeholder="message"></textarea>
+        <button type="submit">Send message</button>
+
+        <h1 id="msg"></h1>
+    </form>
+
+    <script>
+        /* Link for input types and attributes */
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+
+        const form = document.getElementById("college-contact-form")
+        form.addEventListener("submit", function (event) {
+            event.preventDefault() // Important
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const text = document.getElementById("subject").value;
+            const message = document.getElementById("message").value;
+
+            const msg = document.getElementById("msg");
+            /* Validation for name */
+            if (name.length < 3) {
+                msg.innerHTML = "Not a valid name";
+            }
+
+            if (!email.includes("@")) {
+                msg.innerHTML = "Not a valid Email";
+            }
+
+            /* Handle form data */
+            // Send it server 
+            // store it 
+        })
+
+    </script>
+</body>
+
+</html>
