@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Style Images</title>
+</head>
+
+<body>
+    <h1>Instagram Style Image Feed</h1>
+
+    <!-- Container to display images -->
+    <div id="image-feed"></div>
+
+    <script>
+        // Fetching a list of images from a dummy API
+        fetch('https://picsum.photos/v2/list?limit=10')  // Fetching 10 images from the API
+            .then(response => response.json())  // Parse the response to JSON
+            .then(images => {
+                // Get the image-feed container
+                const imageFeed = document.getElementById('image-feed');
+
+                // Simple for loop to iterate through the images array
+                for (let i = 0; i < images.length; i++) {
+                    const newImage = document.createElement('img');  // Create an <img> element
+                    newImage.src = images[i].download_url;  // Set the image source URL
+                    newImage.alt = images[i].author;  // Set an alt text for the image
+                    newImage.width = 150;  // Set a fixed width for the images
+                    newImage.style.margin = '10px';  // Add margin between images
+
+                    // Append the image to the feed container
+                    // We use newImage.outerHTML to insert the < img > tag directly into the container as a string.
+                    imageFeed.innerHTML += newImage.outerHTML;  // Use innerHTML to insert the image
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching images:', error);
+                document.getElementById('image-feed').innerText = 'Failed to load images';
+            });
+    </script>
+
+</body>
+
+</html>

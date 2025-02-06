@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User 1</title>
+</head>
+
+<body>
+    <h2>Create User 1</h2>
+    <button onclick="createUser1()">Create User</button>
+    <p id="responseUser1" style="color: green;">Response will appear here</p>
+
+    <script>
+        function createUser1() {
+            // Data for the new user
+            const userData = {
+                name: "John Doe",
+                username: "johndoe123",
+                email: "johndoe@example.com",
+                address: {
+                    street: "123 Main St",
+                    city: "Anytown",
+                    zipcode: "12345"
+                },
+                phone: "123-456-7890"
+            };
+
+            // Making a POST request to create user
+            fetch('https://jsonplaceholder.typicode.com/users', {
+                method: 'POST', // HTTP method
+                headers: {
+                    'Content-Type': 'application/json' // Sending JSON data
+                },
+                body: JSON.stringify(userData) // Send user data as JSON, FETCH accepts only String body, so we convert json to string   
+            })
+                .then(response => response.json()) // Convert response to JSON
+                .then(data => {
+                    document.getElementById('responseUser1').innerText = `User Successfully Created with ID: ${data.id}`;
+                })
+                .catch(error => console.error('Error:', error)); // Handle errors
+        }
+    </script>
+</body>
+
+</html>

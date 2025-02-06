@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with Radio, Select, Date & Time</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="loginForm">
+        <input type="text" name="name" id="name" placeholder="User name*">
+        <input type="password" name="password" id="password" placeholder="Password *">
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+
+
+    <script>
+        function submitForm() {
+            const name = document.getElementById("name").value;
+            const password = document.getElementById("password").value;
+            console.log(name, password);
+
+            //fetch  
+            // GET, POST, PUT, DELETE
+            // Read a value from server  - GET 
+            // Create a value - POST 
+            // Update a value - PUT
+            // Delete a value - DELETE 
+
+            // -JSON-, STRING - What ever you want to pass for backend
+            const request = {
+                username: 'emilys',
+                password: 'emilyspass',
+            }
+
+            // GET REQUEST
+            // https://jsonplaceholder.typicode.com/users
+            fetch('https://jsonplaceholder.typicode.com/users', { method: "GET" }) // I am making a Request- GET 
+                .then(function (response) { return response.json() }) // Response - Network response , Header, body, netwrok status, CORS  
+                .then(data => console.log(data)) // Required data 
+
+            //POST REQUEST 
+            const options = {
+                method: "POST",
+                headers: { "Content-type": "application/json" },
+                body: JSON.stringify(request)
+            }
+            fetch('https://dummyjson.com/user/login', options)
+                .then(response => response.json())
+                .then(data => console.log(data))
+
+            // POST REQUEST 
+            /*
+             1- Add link 
+             2- Prepare options (OTHER THAN GET REQUEST) 
+                2.1- METHOD - Default is GET; add for Either post, put, delete
+                2.2- headers: always send Content-type : application/json
+                2.3- BODY - JSON.STRINGFY() // send your data
+             */
+
+            fetch('https://dummyjson.com/posts/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    title: 'I am in love with someone.',
+                    userId: 5
+                })
+            }).then(res => res.json())
+                .then(x => console.log(x));
+
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API - Display Data</title>
+</head>
+
+<body>
+    <h2>User Name:</h2>
+    <p id="userName">Loading...</p>
+
+    <script>
+        // Fetch user data from API
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json()) // Convert response to JSON
+            .then(data => {
+                document.getElementById('userName').innerText = data[0].name; // Since Data is array, we take first person with [0], Display first user's name
+            })
+            .catch(error => console.error('Error:', error)); // Handle errors
+    </script>
+</body>
+
+</html>

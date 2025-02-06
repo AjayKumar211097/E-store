@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+</head>
+
+<body>
+    <h1>Product Details</h1>
+
+    <!-- Placeholder for displaying product details -->
+    <div id="product-details">
+        Loading product details...
+    </div>
+
+    <script>
+        // Fetch data for a specific product from the API
+        fetch('https://fakestoreapi.com/products/1')  // Fetch details of product with ID 1
+            .then(response => response.json())  // Convert the response to JSON format
+            .then(product => {
+                // Get the product details section
+                const productDetails = document.getElementById('product-details');
+
+                // Display the product details in HTML
+                productDetails.innerHTML = `
+                    <h2>${product.title}</h2>
+                    <img src="${product.image}" alt="${product.title}" width="200">
+                    <p><strong>Category:</strong> ${product.category}</p>
+                    <p><strong>Description:</strong> ${product.description}</p>
+                    <p><strong>Price:</strong> $${product.price}</p>
+                    <button>Add to Cart</button>
+                `;
+            })
+            .catch(error => {
+                console.error('Error fetching product details:', error);  // Handle any errors
+                document.getElementById('product-details').innerText = 'Failed to load product details';
+            });
+
+
+    </script>
+
+</body>
+
+</html>

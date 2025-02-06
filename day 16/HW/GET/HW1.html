@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API - Console</title>
+</head>
+
+<body>
+    <h2>Open Console to See Data</h2>
+
+    <script>
+        // Fetch user data from a dummy API
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json()) // Convert response to JSON
+            .then(data => console.log(data)) // Print full data in console
+            .catch(error => console.error('Error:', error)); // Handle any errors
+    </script>
+</body>
+
+</html>
