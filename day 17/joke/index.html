@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: "Open Sans", serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            padding: 25px;
+            width: auto;
+            min-width: 500px;
+            height: 25vh;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h4 id="for-quote">Loading...</h4>
+    </div>
+    <script>
+        const h4El = document.getElementById("for-quote")
+
+        fetch("https://official-joke-api.appspot.com/random_joke")
+            .then(x => x.json())
+            .then(data => h4El.innerHTML = data.setup + "<br>" + data.punchline)
+    </script>
+</body>
+
+</html>
