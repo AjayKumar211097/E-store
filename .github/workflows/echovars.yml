@@ -1,19 +1,30 @@
-name: Echo Repository and Environment Variables
+name: Echo Environment Variables and Repository Secrets
 
-on: [push]
+on:
+    push:
+        branches:
+            - main # Trigger on push to main branch
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest # This is the runner for the job
 
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
-
-      - name: Echo repository variable (APP_KEY)
-        run: echo "APP_KEY is ${{ secrets.APP_KEY }}"
-
-      - name: Echo environment variable (e.g., MY_ENV_VAR)
-        run: echo "MY_ENV_VAR is $MY_ENV_VAR"
         env:
-          MY_ENV_VAR: ${{ secrets.MY_ENV_VAR }}  # or use any predefined environment variable
+            APP_KEY: ${{ secrets.DEV_APP_KEY }} # Example environment variable from repository secret
+
+        steps:
+            # Step 1: Check out the repository
+            - name: Check out repository
+              uses: actions/checkout@v2
+
+            # Step 2: Echo environment variable from the `env` section
+            - name: Echo APP_KEY from env
+              run: echo "APP_KEY is $APP_KEY" # Accessing environment variable set in `env`
+
+            # Step 3: Echo repository secret (directly from secrets)
+            - name: Echo DEV_APP_KEY from repository secrets
+              run: echo "DEV_APP_KEY is ${{ secrets.DEV_APP_KEY }}" # Accessing repository secret
+
+            # Step 4: Echo a GitHub environment variable
+            - name: Echo GITHUB_SHA
+              run: echo "GITHUB_SHA is $GITHUB_SHA" # GitHub automatically sets this variable (commit hash)
