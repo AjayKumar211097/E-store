@@ -1,0 +1,19 @@
+name: Echo Repository and Environment Variables
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Echo repository variable (APP_KEY)
+        run: echo "APP_KEY is ${{ secrets.APP_KEY }}"
+
+      - name: Echo environment variable (e.g., MY_ENV_VAR)
+        run: echo "MY_ENV_VAR is $MY_ENV_VAR"
+        env:
+          MY_ENV_VAR: ${{ secrets.MY_ENV_VAR }}  # or use any predefined environment variable
