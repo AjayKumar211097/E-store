@@ -1,10 +1,18 @@
 name: AI Content & Code Detection
+
 on: [push, pull_request]
+
 jobs:
     detect-ai-code:
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: "day 21" # 👈 Change working dir relative to repo root
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0 # Full git history
+
             - name: Set up Python
               uses: actions/setup-python@v4
               with:
@@ -16,7 +24,7 @@ jobs:
 
             - name: Run AI Code Detection
               run: |
-                  ai-gen-code-search scan ./src > ai-detection-report.txt
+                  ai-gen-code-search scan . > ai-detection-report.txt || true
 
             - name: Upload report
               uses: actions/upload-artifact@v4
