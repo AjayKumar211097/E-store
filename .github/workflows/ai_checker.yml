@@ -17,7 +17,7 @@ jobs:
 
             - name: Install AI Detection Tool
               run: |
-                  pip install ai-gen-code-search
+                  pip install git+https://github.com/aboutcode-org/ai-gen-code-search.git
 
             - name: Run AI Code Detection
               id: detect
