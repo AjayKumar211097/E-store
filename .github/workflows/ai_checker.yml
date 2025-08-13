@@ -1,0 +1,22 @@
+name: AI Content & Code Detection
+on: [push, pull_request]
+jobs:
+    detect-ai-code:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.x"
+            - name: Install ai-gen-code-search
+              run: |
+                  pip install ai-gen-code-search
+            - name: Run AI Code Detection
+              run: |
+                  ai-gen-code-search scan ./src > ai-detection-report.txt
+            - name: Upload report
+              uses: actions/upload-artifact@v3
+              with:
+                  name: ai-detection-report
+                  path: ai-detection-report.txt
