@@ -1,60 +1,29 @@
-name: AI Content & Code Detection
+name: AI Code Scan
 
 on: [push, pull_request]
 
 jobs:
-    detect-ai-code:
+    ai-detect:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0 # Get full history so detection tools can check commits
+            - uses: actions/checkout@v3
 
             - name: Set up Python
               uses: actions/setup-python@v4
               with:
-                  python-version: "3.x"
+                  python-version: "3.11"
 
-            - name: Install AI Detection Tool
-              run: |
-                  pip install git+https://github.com/aboutcode-org/ai-gen-code-search.git
+            - name: Install AI detector
+              run: pip install gptzero
 
-            - name: Run AI Code Detection
-              id: detect
+            - name: Run AI detection
               run: |
-                  ai-gen-code-search scan "day 21" > ai-detection-report.txt || true
-                  # If the report contains "AI-generated code detected", set a flag
-                  if grep -q "AI-generated code detected" ai-detection-report.txt; then
-                    echo "found=true" >> $GITHUB_ENV
-                  else
-                    echo "found=false" >> $GITHUB_ENV
+                  gptzero scan ./ --output report.json
+
+            - name: Fail if AI code > threshold
+              run: |
+                  score=$(jq '.average_confidence' report.json)
+                  if (( $(echo "$score > 0.8" | bc -l) )); then
+                    echo "AI-generated code detected! Failing CI."
+                    exit 1
                   fi
-
-            - name: Upload Detection Report
-              uses: actions/upload-artifact@v4
-              with:
-                  name: ai-detection-report
-                  path: ai-detection-report.txt
-
-            - name: Comment on PR with results
-              if: github.event_name == 'pull_request'
-              uses: actions/github-script@v7
-              with:
-                  script: |
-                      const fs = require('fs');
-                      const report = fs.readFileSync('ai-detection-report.txt', 'utf8');
-                      const body = process.env.found === "true"
-                        ? `⚠️ **AI-generated code detected in 'day 21' folder!**\n\n\`\`\`\n${report}\n\`\`\``
-                        : `✅ No AI-generated code detected in 'day 21' folder.`;
-                      github.rest.issues.createComment({
-                        issue_number: context.issue.number,
-                        owner: context.repo.owner,
-                        repo: context.repo.repo,
-                        body
-                      });
-
-            - name: Fail if AI code detected
-              if: env.found == 'true'
-              run: |
-                  echo "❌ AI-generated code detected. Please review before merging."
-                  exit 1
