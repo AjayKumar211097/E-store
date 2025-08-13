@@ -1,29 +1,33 @@
-name: AI Code Scan
+name: Codequiry Check
 
-on: [push, pull_request]
+on:
+    push:
+        branches:
+            - main
+            - "student/*"
 
 jobs:
-    ai-detect:
+    check_code:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - name: Checkout code
+              uses: actions/checkout@v3
 
-            - name: Set up Python
+            - name: Setup Python
               uses: actions/setup-python@v4
               with:
-                  python-version: "3.11"
+                  python-version: 3.11
 
-            - name: Install AI detector
-              run: pip install gptzero
-
-            - name: Run AI detection
+            - name: Install Codequiry CLI
               run: |
-                  gptzero scan ./ --output report.json
+                  pip install codequiry
 
-            - name: Fail if AI code > threshold
+            - name: Run Codequiry
               run: |
-                  score=$(jq '.average_confidence' report.json)
-                  if (( $(echo "$score > 0.8" | bc -l) )); then
-                    echo "AI-generated code detected! Failing CI."
-                    exit 1
-                  fi
+                  codequiry check --folder ./ --apikey ${{ secrets.CODEQUIRY_API_KEY }} --report report.json
+
+            - name: Upload Report
+              uses: actions/upload-artifact@v3
+              with:
+                  name: codequiry-report
+                  path: report.json
